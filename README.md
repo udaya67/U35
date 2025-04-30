@@ -16,19 +16,6 @@ The project consists of two main parts:
 
 ## Running the Application
 
-### Option 1: Using the provided scripts
-
-#### For Windows users:
-1. Double-click on `run-app.bat`
-2. This will install dependencies and start both the frontend and backend servers
-
-#### For Linux/Mac users:
-1. Open a terminal in the project root directory
-2. Run `./run-app.sh`
-3. This will install dependencies and start both the frontend and backend servers
-
-### Option 2: Manual setup
-
 #### Backend:
 1. Navigate to the backend directory: `cd backend`
 2. Install dependencies: `npm install`
@@ -74,19 +61,8 @@ For testing purposes, use the following credentials:
 .
 ├── frontend/           # Angular frontend application
 ├── backend/           # Node.js backend application
-├── nginx/            # NGINX configuration
-├── docker-compose.yml # Docker Compose configuration
-└── README.md         # Project documentation
+
 ```
 
-## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
