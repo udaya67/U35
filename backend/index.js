@@ -9,6 +9,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+//app.use(express.static("frontend"));
+
 
 // Database connection
 const pool = mysql.createPool({
@@ -79,13 +81,11 @@ app.post('/api/login', (req, res) => {
 
 
 
-app.get('/api/benefits', async (req, res) => {
+app.get('/api/benefits', authenticateToken, async (req, res) => {
   try {
     const [rows] = await pool.execute(
       'SELECT benefit_type, percentage FROM benefits'
     );
-    
-
     res.json(rows);
   } catch (error) {
     console.error('Chart data error:', error);
@@ -93,7 +93,7 @@ app.get('/api/benefits', async (req, res) => {
   }
 });
 
-app.get('/api/challenges', async (req, res) => {
+app.get('/api/challenges',authenticateToken, async (req, res) => {
   try {
     const [rows] = await pool.execute(
       'SELECT challenges, percentage FROM challenges_faced'

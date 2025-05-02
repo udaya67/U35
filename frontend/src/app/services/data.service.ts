@@ -12,7 +12,13 @@ export class DataService {
   // Fetch data from /challenges endpoint
   async getChallenges() {
     try {
-      const response = await axios.get(`${this.apiUrl}/challenges`);
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${this.apiUrl}/challenges`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
       console.log('Challenges Data:', response.data); // Log the response data
       return response.data; // Return the data to the component
     } catch (error) {
@@ -24,8 +30,12 @@ export class DataService {
   // Fetch data from /benefits endpoint
   async getBenefits() {
     try {
-      const response = await axios.get(`${this.apiUrl}/benefits`);
-      console.log('Benefits Data:', response.data); // Log the response data
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`${this.apiUrl}/benefits`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });      console.log('Benefits Data:', response.data); // Log the response data
       return response.data; // Return the data to the component
     } catch (error) {
       console.error('Error fetching benefits:', error);
